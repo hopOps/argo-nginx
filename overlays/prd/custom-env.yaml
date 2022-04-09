@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
   - name: np-http
-    port: 38000
+    port: 38001
     targetPort: 8080
     protocol: TCP
   selector:
