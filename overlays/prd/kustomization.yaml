@@ -6,16 +6,3 @@ bases:
 
 patchesStrategicMerge:
 - custom-env.yaml
-#- replica-and-rollout-strategy.yaml
-#- database-secret.yaml
-
-#secretGenerator:
-#- literals:
-#  - db-password=12345
-#  name: sl-demo-app
-#  type: Opaque
-
-#images:
-#- name: foo/bar
-#  newName: foo/bar
-#  newTag: 3.4.5
