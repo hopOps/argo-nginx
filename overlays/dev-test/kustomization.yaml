@@ -1,0 +1,15 @@
+bases:
+- ../../base
+patches:
+- path: deploy-patches.yaml
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: nginx-proxy
+- path: svc-patches.yaml
+  target:
+    group: apps
+    version: v1
+    kind: Service
+    name: nginx-proxy-svc

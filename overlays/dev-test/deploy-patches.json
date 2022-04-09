@@ -1,0 +1,12 @@
+[
+    {
+        "op": "replace",
+        "path": "/metadata/name",
+        "value": "nginx-dev"
+    },
+    {
+        "op": "replace",
+        "path": "/spec/ports[0].port",
+        "value": "39100"
+    }
+]
