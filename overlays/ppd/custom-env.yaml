@@ -20,7 +20,7 @@ spec:
   replicas: 10
   selector:
     matchLabels:
-      app: nginx-proxy
+      app: nginx-proxy-ppd
   template:
     metadata:
       labels:
