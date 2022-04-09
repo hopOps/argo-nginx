@@ -1,14 +1,8 @@
 ---
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: nginx-proxy-prd
----
-apiVersion: v1
 kind: Service
 metadata:
   name: nginx-proxy-svc
-  namespace: nginx-proxy-prd
 spec:
   ports:
   - name: np-http
@@ -22,7 +16,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-proxy
-  namespace: nginx-proxy-prd
 spec:
   replicas: 10
   selector:
