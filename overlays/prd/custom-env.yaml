@@ -29,6 +29,9 @@ spec:
       containers:
       - image: nginx
         name: nginx
+        env:
+            - name: ENV
+              value: PRD
         ports:
         - containerPort: 8080
           name: http
