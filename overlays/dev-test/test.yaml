@@ -1,0 +1,40 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: pass-dev
+  namespace: corp-gitops
+spec:
+  generators:
+  - list:
+      elements:
+      - service: account
+        server: aro
+      - service: auth
+        server: aro
+      - service: backoffice
+      - service: email
+      - service: front-account
+      - service: front-partner
+      - service: front
+      - service: modules
+      - service: partner
+      - service: scheduler
+  template:
+    metadata:
+      name: pass-{{service}}-dev
+    spec:
+      destination:
+        name: in-cluster
+        namespace: cor-wpt-dev-pass-cicd
+      project: wpt
+      source:
+        helm:
+          valueFiles:
+          - HELM_DEV_ENV.yaml
+        path: helm_deploy/openshift-projects/pass/{{service}}
+        repoURL: git@scm.gdc.geodis.org:corp/openshift-projects/cd.git
+        targetRevision: HEAD
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+
