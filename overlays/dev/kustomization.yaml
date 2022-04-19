@@ -1,4 +1,8 @@
 bases:
 - ../../base
+
+nameSuffix: -dev
+
 patchesStrategicMerge:
-- env.yaml
+- cpu_count.yaml
+- replica_count.yaml

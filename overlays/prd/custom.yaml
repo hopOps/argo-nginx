@@ -1,0 +1,21 @@
+---
+apiVersion: builtin
+kind: PatchTransformer
+metadata:
+  name: helm-cleaner-kube-state
+target:
+  group: apps
+  version: v1
+  kind: Deployment
+  namespace: nginx-prd
+  name: prd-nginx-proxy
+patch: |-
+  - op: replace
+    path: /spec/template/spec/containers/0/image
+    value: "my-registry.servers.xyz.com/mirrors/quay.io/coreos/kube-state-metrics:v1.9.5"
+  - op: remove
+    path: /spec/template/spec/containers/0/resources/limits/cpu
+  - op: remove
+    path: "/metadata/labels/helm.sh~1chart"
+  - op: remove
+    path: "/metadata/labels/app.kubernetes.io~1managed-by"
