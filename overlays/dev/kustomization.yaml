@@ -3,6 +3,10 @@ bases:
 
 nameSuffix: -dev
 
+components:
+  - ../../components/serviceaccounts
+
+
 patchesStrategicMerge:
 - cpu_count.yaml
 - replica_count.yaml
